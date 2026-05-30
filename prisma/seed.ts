@@ -18,6 +18,9 @@ const PERMISSIONS = [
   { key: "application.update_status", description: "Update application status" },
   { key: "application.delete", description: "Delete application" },
 
+  { key: "campaign.read", description: "Read email campaigns and delivery history" },
+  { key: "campaign.send", description: "Send email campaigns to selected applicants" },
+
   { key: "rbac.read", description: "Read roles and permissions" },
   { key: "rbac.manage_roles", description: "Create/update roles" },
   { key: "rbac.manage_permissions", description: "Assign/remove role permissions" },
@@ -41,6 +44,9 @@ const ROLES = [
       "application.read",
       "application.update",
       "application.update_status",
+      "application.delete",
+      "campaign.read",
+      "campaign.send",
       "admin.dashboard",
     ],
   },

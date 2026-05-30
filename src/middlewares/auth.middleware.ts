@@ -1,5 +1,6 @@
 import type { NextFunction, Request, Response } from "express"
 import { verifyAccessToken } from "../lib/jwt.js"
+import logger from "../configs/logger.js";
 
 export type AuthenticatedRequest = Request & {
   user?: { id: string; email: string }
@@ -12,6 +13,7 @@ export function authMiddleware(
 ) {
   const header = req.headers.authorization
   if (!header || !header.startsWith("Bearer ")) {
+    logger.error("Unauthorized: No token provided")
     return res.status(401).json({ message: "Unauthorized: No token provided" })
   }
 
@@ -21,6 +23,7 @@ export function authMiddleware(
     req.user = { id: payload.sub, email: payload.email }
     return next()
   } catch {
+    logger.error("Unauthorized: Invalid token")
     return res.status(401).json({ message: "Unauthorized: Invalid token" })
   }
 }

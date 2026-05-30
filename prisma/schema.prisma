@@ -35,6 +35,12 @@ enum ApplicationStage {
   SCALING
 }
 
+enum EmailDeliveryStatus {
+  QUEUED
+  SENT
+  FAILED
+}
+
 model User {
   id           String     @id @default(cuid())
   email        String     @unique
@@ -47,9 +53,10 @@ model User {
   // RBAC
   userRoles    UserRole[] @relation("UserRoles")
 
-  assignedUserRoles UserRole[]    @relation("UserRoleAssignedBy")
-  applications      Application[] @relation("ApplicantApplications")
-  reviewedApps      Application[] @relation("ReviewerApplications")
+  assignedUserRoles UserRole[]      @relation("UserRoleAssignedBy")
+  applications      Application[]   @relation("ApplicantApplications")
+  reviewedApps        Application[]   @relation("ReviewerApplications")
+  emailCampaigns    EmailCampaign[]
 }
 
 model Role {
@@ -123,13 +130,53 @@ model Application {
   reviewedById       String?
   applicant          User?                   @relation("ApplicantApplications", fields: [applicantId], references: [id], onDelete: SetNull)
   reviewedBy         User?                   @relation("ReviewerApplications", fields: [reviewedById], references: [id], onDelete: SetNull)
-  teamMembers        ApplicationTeamMember[]
-  createdAt          DateTime                @default(now())
-  updatedAt          DateTime                @updatedAt
+  teamMembers     ApplicationTeamMember[]
+  emailDeliveries EmailDelivery[]
+  createdAt       DateTime                @default(now())
+  updatedAt       DateTime                @updatedAt
 
   @@index([status])
   @@index([startupEmail])
   @@index([submittedAt])
+}
+
+model EmailCampaign {
+  id          String   @id @default(cuid())
+  name        String?
+  subject     String
+  templateKey String?
+  htmlBody    String
+  createdById String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  createdBy  User            @relation(fields: [createdById], references: [id], onDelete: Restrict)
+  deliveries EmailDelivery[]
+
+  @@index([createdById])
+  @@index([createdAt])
+}
+
+model EmailDelivery {
+  id             String              @id @default(cuid())
+  campaignId     String
+  applicationId  String
+  recipientEmail String
+  status         EmailDeliveryStatus @default(QUEUED)
+  jobId          String?             @unique
+  sentAt         DateTime?
+  failedAt       DateTime?
+  errorMessage   String?
+  attempts       Int                 @default(0)
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+
+  campaign    EmailCampaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  application Application   @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([campaignId])
+  @@index([applicationId])
+  @@index([status])
 }
 
 model ApplicationTeamMember {

@@ -1,0 +1,70 @@
+[2026-05-29 04:46:40.374 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[2026-05-29 04:47:24.092 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[2026-05-29 04:48:19.804 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[2026-05-29 04:48:51.027 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[2026-05-29 04:49:35.871 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[2026-05-29 04:55:32.275 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[2026-05-29 04:56:07.710 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[2026-05-29 04:56:25.396 PM] [32minfo[39m: 	[32mServer is running on port 3000[39m
+[undefined] info: Server is running on port 3000
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T15:59:21.796Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T16:02:26.848Z"}
+{"level":"error","message":"Unauthorized: Invalid token","timestamp":"2026-05-29T16:02:32.253Z","token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjbXBwZmh2ZDAwMDBkcGNqeWRyM29tN3A0IiwiZW1haWwiOiJhZG1pbkBwaXRjaG9mZi5jb20iLCJpYXQiOjE3Nzk5NzIxNDIsImV4cCI6MTc4MDA1ODU0Mn0.bpICbiAk0oJHv-KBlIVyLvV0sfGNgwvuIFBo5y4p-_8"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T16:03:25.719Z"}
+{"level":"error","message":"Unauthorized: Invalid token","timestamp":"2026-05-29T16:03:30.490Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T17:51:17.382Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T17:55:19.831Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:06:46.726Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:07:50.420Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:08:23.193Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:08:57.010Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:09:04.279Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:09:23.390Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:11:10.885Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:17:15.067Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:17:38.329Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-29T18:20:58.715Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:15:56.538Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:20:28.602Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:26:45.399Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:29:03.688Z"}
+{"level":"error","message":"An application already exists for this email.","startupEmail":"founder@starthr.africa","timestamp":"2026-05-30T09:29:34.310Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:33:54.736Z"}
+{"level":"error","message":"An application already exists for this email.","startupEmail":"gbenga@kickoff.africa","timestamp":"2026-05-30T09:33:59.267Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:35:02.490Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:35:11.833Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:36:43.276Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:37:12.991Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:39:19.593Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:39:25.525Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:42:01.282Z"}
+{"error":"The kickoffafrica.com domain is not verified. Please, add and verify your domain on https://resend.com/domains","level":"error","message":"Email job failed: app-received-cmps6b83800011sjylyd13dha","timestamp":"2026-05-30T09:53:46.321Z"}
+{"error":"The kickoffafrica.com domain is not verified. Please, add and verify your domain on https://resend.com/domains","level":"error","message":"Email job failed: app-received-cmps6b83800011sjylyd13dha","timestamp":"2026-05-30T09:53:51.052Z"}
+{"error":"The kickoffafrica.com domain is not verified. Please, add and verify your domain on https://resend.com/domains","level":"error","message":"Email job failed: app-received-cmps6b83800011sjylyd13dha","timestamp":"2026-05-30T09:53:58.266Z"}
+{"error":"The kickoffafrica.com domain is not verified. Please, add and verify your domain on https://resend.com/domains","level":"error","message":"Email job failed: app-received-cmps6b83800011sjylyd13dha","timestamp":"2026-05-30T09:54:11.855Z"}
+{"error":"The kickoffafrica.com domain is not verified. Please, add and verify your domain on https://resend.com/domains","level":"error","message":"Email job failed: app-received-cmps6b83800011sjylyd13dha","timestamp":"2026-05-30T09:54:36.575Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T09:57:17.803Z"}
+{"level":"info","message":"Email job completed: app-received-cmps6g3cj00015bjyp4akasno","timestamp":"2026-05-30T09:57:31.717Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:23:24.937Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:54:56.097Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:54:57.557Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:55:08.120Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:55:32.400Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:55:38.298Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:55:46.116Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:55:48.474Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T11:55:52.357Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T13:49:29.970Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T13:52:05.183Z"}
+{"level":"error","message":"An application already exists for this email.","startupEmail":"gbenga@kickoff.africa","timestamp":"2026-05-30T13:52:36.515Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T18:04:00.182Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T18:05:05.516Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T18:05:07.948Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T20:15:39.456Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T20:26:31.958Z"}
+{"level":"info","message":"Server is running on port 3000","timestamp":"2026-05-30T20:26:38.355Z"}
+{"error":"You can only send testing emails to your own email address (gbenga@kickoff.africa). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.","level":"error","message":"Email job failed: app-received-cmpst6i0t0002xijyk6ma307q","timestamp":"2026-05-30T20:33:55.714Z"}
+{"error":"You can only send testing emails to your own email address (gbenga@kickoff.africa). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.","level":"error","message":"Email job failed: app-received-cmpst6i0t0002xijyk6ma307q","timestamp":"2026-05-30T20:34:01.628Z"}
+{"error":"You can only send testing emails to your own email address (gbenga@kickoff.africa). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.","level":"error","message":"Email job failed: app-received-cmpst6i0t0002xijyk6ma307q","timestamp":"2026-05-30T20:34:12.583Z"}
+{"error":"You can only send testing emails to your own email address (gbenga@kickoff.africa). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.","level":"error","message":"Email job failed: app-received-cmpst6i0t0002xijyk6ma307q","timestamp":"2026-05-30T20:34:33.440Z"}
+{"error":"You can only send testing emails to your own email address (gbenga@kickoff.africa). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.","level":"error","message":"Email job failed: app-received-cmpst6i0t0002xijyk6ma307q","timestamp":"2026-05-30T20:35:14.117Z"}

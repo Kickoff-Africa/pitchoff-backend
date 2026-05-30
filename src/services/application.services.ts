@@ -1,7 +1,11 @@
-import { ApplicationStatus, type ApplicationStage } from "../generated/prisma/client.js"
+import { ApplicationStatus, type ApplicationStage, Prisma } from "../generated/prisma/client.js"
 import { prisma } from "../lib/prisma.js"
 import { AppError } from "../lib/app-error.js"
 import { UserStatus } from "../generated/prisma/client.js"
+import logger from "../configs/logger.js"
+import { buildPaginationMeta, type PaginationInput } from "../lib/pagination.js"
+import { buildApplicationWhere, type ApplicationListFilters } from "../lib/application-filters.js"
+import { notifyApplicationReceived } from "./notification.service.js"
 
 type CreateApplicationInput = {
   startupName: string
@@ -78,12 +82,13 @@ export async function createApplicationService(input: {
   })
 
   if (existingApplication) {
+    logger.error("An application already exists for this email.", { startupEmail: input.startupEmail })
     throw new AppError("An application already exists for this email.", 409, {
       applicationRef: existingApplication.publicRef,
     })
   }
 
-  return prisma.application.create({
+  const application = await prisma.application.create({
     data: {
       startupName: input.startupName,
       startupDescription: input.startupDescription,
@@ -112,28 +117,36 @@ export async function createApplicationService(input: {
     },
     include: { teamMembers: true },
   })
+
+  await notifyApplicationReceived({
+    to: applicant.email,
+    startupName: input.startupName,
+    publicRef: application.publicRef,
+  })
+
+  return application
 }
 
-export async function listApplicationsService(params: {
-  status?: ApplicationStatus
-  q?: string
+export async function listApplicationsService(input: {
+  pagination: PaginationInput
+  filters: ApplicationListFilters
 }) {
-  const { status, q } = params
-
-  return prisma.application.findMany({
-    where: {
-      status: status ?? undefined,
-      OR: q
-        ? [
-            { startupName: { contains: q, mode: "insensitive" } },
-            { startupEmail: { contains: q, mode: "insensitive" } },
-            { publicRef: { contains: q, mode: "insensitive" } },
-          ]
-        : undefined,
-    },
-    include: { teamMembers: true },
-    orderBy: { createdAt: "desc" },
-  })
+  const { pagination, filters } = input
+  const where = buildApplicationWhere(filters)
+  const [total, data] = await prisma.$transaction([
+    prisma.application.count({ where }),
+    prisma.application.findMany({
+      where,
+      include: { teamMembers: true },
+      orderBy: { [pagination.sortBy]: pagination.sortOrder },
+      skip: pagination.skip,
+      take: pagination.limit,
+    }),
+  ])
+  return {
+    data,
+    meta: buildPaginationMeta(total, pagination.page, pagination.limit),
+  }
 }
 
 export async function updateApplicationStatusService(input: {
@@ -149,4 +162,24 @@ export async function updateApplicationStatusService(input: {
       reviewedById: input.reviewerId,
     },
   })
+}
+
+
+export async function deleteApplicationService(input: {
+  id: string
+}) {
+  try {
+    return await prisma.application.delete({
+      where: { id: input.id },
+      include: { teamMembers: true },
+    })
+  } catch (error) {
+    if (
+      error instanceof Prisma.PrismaClientKnownRequestError &&
+      error.code === "P2025"
+    ) {
+      throw new AppError("Application not found", 404)
+    }
+    throw error
+  }
 }

@@ -2,7 +2,7 @@ import { Router } from "express"
 import { authMiddleware } from "../middlewares/auth.middleware.js"
 import { requirePermission } from "../middlewares/permission.middleware.js"
 import { asyncHandler } from "../lib/async-handler.js"
-import { listApplicationsController, updateApplicationStatusController } from "../controllers/application.controller.js"
+import { deleteApplicationController, listApplicationsController, updateApplicationStatusController } from "../controllers/application.controller.js"
 
 const router: Router = Router()
 
@@ -63,5 +63,32 @@ router.get(
     requirePermission("application.update_status"),
     asyncHandler(updateApplicationStatusController)
   )
+
+  /**
+ * @openapi
+ * /api/admin/applications/{id}:
+ *   delete:
+ *     tags: [Admin]
+ *     summary: Delete application
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema: { type: string }
+ *     responses:
+ *       200:
+ *         description: Application deleted
+ *       401:
+ *         description: Unauthorized
+ *       403:
+ *         description: Forbidden
+ */
+router.delete(
+  "/applications/:id",
+  authMiddleware,
+  requirePermission("application.delete"),
+  asyncHandler(deleteApplicationController)
+)
 
 export default router
