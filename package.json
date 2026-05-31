@@ -6,11 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/index.js",
-    "build": "tsc",
+    "start:prod": "prisma migrate deploy && node dist/index.js",
+    "build": "prisma generate && tsc",
+    "postinstall": "prisma generate",
     "dev": "tsx --watch src/index.ts",
     "lint": "eslint src/**/*.ts",
+    "db:generate": "prisma generate",
+    "db:migrate": "prisma migrate deploy",
     "seed": "tsx prisma/seed.ts",
     "worker:email": "tsx src/workers/email.worker.ts"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/engines",
+      "prisma"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -23,13 +33,13 @@
     "@types/multer": "^2.1.0",
     "@types/node": "^25.9.1",
     "jsonwebtoken": "^9.0.3",
-    "prisma": "^7.8.0",
     "tsx": "^4.22.3",
     "typescript": "^6.0.3"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
+    "prisma": "^7.8.0",
     "@types/bcryptjs": "^3.0.0",
     "@types/body-parser": "^1.19.6",
     "@types/swagger-jsdoc": "^6.0.4",
